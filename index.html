@@ -545,8 +545,8 @@ async function sendMessage() {
     conversationHistory.push({ role: 'assistant', content: reply });
     
     // Check if lead was collected
-    const nameMatch = reply.match(/nice to meet you,?\s+([\w\s]+)/i);
-    const whatsappMatch = reply.match(/whatsapp[^\d]*(\+?[\d\s]{9,15})/i);
+    const nameMatch = reply.match(/([A-Z][a-z]{2,})/);
+    const whatsappMatch = reply.match(/(\+?[0-9]{9,15})/);
     const businessMatch = conversationHistory.find(m => m.role === 'user' && m.content.length > 3);
     
     console.log('Checking lead:', nameMatch, whatsappMatch);
