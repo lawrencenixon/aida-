@@ -543,6 +543,19 @@ async function sendMessage() {
  
     const reply = data.choices[0].message.content;
     conversationHistory.push({ role: 'assistant', content: reply });
+    
+    // Check if lead was collected
+    const nameMatch = reply.match(/nice to meet you,?\s+([\w\s]+)/i);
+    const whatsappMatch = reply.match(/whatsapp[^\d]*(\+?[\d\s]{9,15})/i);
+    const businessMatch = conversationHistory.find(m => m.role === 'user' && m.content.length > 3);
+    
+    if (nameMatch && whatsappMatch) {
+      notifyTelegram(
+        nameMatch[1].trim(),
+        businessMatch ? businessMatch.content : 'Unknown',
+        whatsappMatch[1].trim()
+      );
+    }
     removeTyping();
     addMessage('ai', reply);
  
