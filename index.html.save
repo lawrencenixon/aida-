@@ -1,3 +1,7 @@
+cd ~/aida-
+git add .
+git commit -m "Fix client count"
+git push
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -392,7 +396,7 @@ OUR SERVICES AND PRICES:
 2. WhatsApp & Social Automation — included in Growth plan
    Automated replies, appointment reminders, social media scheduling.
  
-3. Website Design — from ETB 15,000 one-time ($100) one-time
+3. Website Design — from ETB 15,000 one-time ($100)
    Professional, fast business websites built specifically for Ethiopian businesses.
  
 4. Growth AI Full Stack — ETB 49,999/month ($299)
