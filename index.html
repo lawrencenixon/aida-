@@ -549,6 +549,7 @@ async function sendMessage() {
     const whatsappMatch = reply.match(/whatsapp[^\d]*(\+?[\d\s]{9,15})/i);
     const businessMatch = conversationHistory.find(m => m.role === 'user' && m.content.length > 3);
     
+    console.log('Checking lead:', nameMatch, whatsappMatch);
     if (nameMatch && whatsappMatch) {
       notifyTelegram(
         nameMatch[1].trim(),
